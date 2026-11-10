@@ -110,6 +110,13 @@ h1,h2,h3{font-weight:400;line-height:1.25;margin:0}
  .cols article{min-height:0}
  .card:nth-child(n){aspect-ratio:auto;padding-bottom:1.4rem}
  .members ul{gap:2rem .5rem}
+ .members li img {
+  width: 150px;             /* הגדירי את הרוחב הרצוי */
+  height: 150px;            /* גובה זהה לרוחב כדי ליצור עיגול מדויק */
+  border-radius: 50%;       /* יוצר את המסגרת העגולה */
+  object-fit: cover;        /* שומר על פרופורציות התמונה המקורית ללא עיוות */
+  object-position: center 20%; /* ממרכז את הפנים ומונע חיתוך של המצח והשיער */
+}
  .social p,.mail p{font-size:19px}
 }
 @media(max-width:480px){.members ul{grid-template-columns:repeat(3,1fr);padding:1.5rem .3rem 0}.members li{padding:0 .3rem}.members h3{font-size:10.5px}.members p{font-size:8.5px}.projects ul{grid-template-columns:repeat(3,1fr);gap:.6rem}.card{padding:.5rem .3rem}.card h3{font-size:8px;letter-spacing:.08em}.projects h1{font-size:30px}.cols,.projects ul{}.cols{grid-template-columns:1fr}.events{padding:0 1.4rem}}
