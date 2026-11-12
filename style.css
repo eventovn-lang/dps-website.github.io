@@ -115,7 +115,6 @@ h1, h2, h3 {
    ========================================================================== */
 
 .projects h1, 
-.members h1, 
 .band.dark h1, 
 .evtitle h1, 
 .conftitle h1 {
@@ -230,7 +229,17 @@ h1, h2, h3 {
    ========================================================================== */
 .announce { background: var(--orange); text-align: center; font-size: 15px; padding: .3rem 1rem; color: var(--gray); font-weight: 600; text-decoration: underline; letter-spacing: .03em; }
 .members { background: var(--light); padding-bottom: 3rem; }
-.members h1 { background: var(--gray); color: var(--orange); padding: .35rem 0; font-size: 26px; font-weight: 700; margin-bottom: 1.5rem; }
+.members h1 { 
+    background: var(--gray); 
+    color: var(--orange); 
+    padding: .35rem calc(max(15px, 50vw - 480px)); 
+    font-size: 26px; 
+    font-weight: 700; 
+    margin-bottom: 1.5rem; 
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+}
 .members ul { list-style: none; margin: 0 auto; padding: 2rem .2rem 0; max-width: 1000px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem 1rem; }
 .members li { padding: 0 .3rem; }
 
