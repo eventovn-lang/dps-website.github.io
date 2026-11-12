@@ -52,81 +52,59 @@ h1, h2, h3 {
    HEADER (לוגו וסרגל ניווט)
    ========================================================================== */
 
-/* 
-   מבנה אזור ה-Header:
-   השתמשנו ב- flex-direction: column כדי לשלוט בסדר האלמנטים.
-   זה מאפשר לנו להקפיץ את הלוגו למעלה (מעל הניווט) בעזרת מאפיין order
-   מבלי לשנות את קובץ ה-HTML.
-*/
 .top {
     display: flex;
     flex-direction: column; 
     background: #fff;
-    padding: 0; /* איפוס ריווחים כדי לשמור על מראה נקי */
+    padding: 0; 
 }
 
-/* --- 1. אזור הלוגו העליון --- */
 .logo {
-    order: -1; /* מקפיץ את הלוגו לראש העמוד */
+    order: -1; 
     display: block;
     width: 100%;
-    
-    /* 
-       יישור הלוגו לקו התוכן השמאלי: 
-       השתמשנו בחישוב דינמי (calc) שדוחף את התוכן פנימה בדיוק לאותו
-       קו של קונטיינר ברוחב 960px.
-    */
     padding-left: calc(max(15px, 50vw - 480px));
     padding-right: calc(max(15px, 50vw - 480px));
-    margin: 1.5rem 0; /* ריווח נקי מלמעלה ומלמטה */
-    border-bottom: none; /* הסרת הפס התחתון הישן למראה נקי יותר */
+    margin: 1.5rem 0; 
+    border-bottom: none; 
 }
 
 .logo img {
     display: block;
-    width: 64%; /* כ-64% מרוחב המסך (שני שלישים) */
-    max-width: 650px; /* הגבלת רוחב מקסימלי */
+    width: 64%; 
+    max-width: 650px; 
     height: auto;
-    margin-left: 0; /* יישור מדויק לשמאל */
+    margin-left: 0; 
 }
 
-/* --- 2. סרגל ניווט בתוך הפס הכתום --- */
+/* סרגל הניווט (מודגש, מוגדל, ופרוס על פני כל השורה) */
 .top nav {
-    order: 2; /* ממקם את הניווט מתחת ללוגו */
-    background-color: var(--orange); /* הפס הכתום */
-    min-height: 48px; /* גובה אלגנטי של 45-50 פיקסלים */
+    order: 2; 
+    background-color: var(--orange); 
+    min-height: 48px; 
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* יישור התפריט לשמאל */
-    
-    /* מיישר את תחילת התפריט בדיוק לאותו קו שמאלי של הלוגו */
+    justify-content: space-between; /* פורס את המילים באופן שווה לכל אורך הפס */
     padding-left: calc(max(15px, 50vw - 480px));
     padding-right: calc(max(15px, 50vw - 480px));
-    
-    /* 
-       יצירת מרווח שווה ופריסה של כ-58%. 
-       כיוון שאין לנו "עוטף" פנימי לקישורים ב-HTML, 
-       שימוש ב-gap גדול מדמה את הריווח המושלם.
-    */
-    gap: 2.5rem; 
 }
 
 .top nav a {
     text-decoration: none;
-    color: #FFFFFF; /* צבע טקסט לבן */
-    font-size: 17px; /* גודל קריא וברור על רקע כתום */
+    color: #FFFFFF; 
+    font-size: 20px; /* הוגדל */
+    font-weight: bold; /* מודגש בבולד */
     padding: 0.4rem 0.2rem;
-    border-bottom: 3px solid transparent; /* הכנה לקו סימון תחתון */
+    border-bottom: 3px solid transparent; 
     margin: 0;
     transition: 0.2s ease;
 }
 
-/* סימון העמוד הפעיל (וקישור במעבר עכבר) */
 .top nav a[aria-current], 
 .top nav a:hover {
     color: #FFFFFF;
-    border-bottom-color: var(--link); /* קו סגול כהה לזיהוי העמוד הפעיל */
+    border-bottom-color: var(--link); 
 }
 
 
@@ -134,10 +112,6 @@ h1, h2, h3 {
    3. כותרות ראשיות בכל העמודים (אחידות ויישור לשמאל)
    ========================================================================== */
 
-/* 
-   מגדיר קונטיינר וירטואלי לכותרות כדי שיישבו בדיוק בקו השמאלי של הלוגו
-   ולא יידבקו לקצה המסך במסכים רחבים.
-*/
 .projects h1, 
 .intro h1, 
 .members h1, 
@@ -146,7 +120,7 @@ h1, h2, h3 {
 .conftitle h1 {
     max-width: 960px;
     margin: 0 auto;
-    text-align: left; /* יישור לשמאל במקום למרכז */
+    text-align: left; 
     padding-left: 15px; 
     padding-right: 15px;
     width: 100%;
@@ -159,7 +133,6 @@ h1, h2, h3 {
    ========================================================================== */
 .intro { background: #fafafa; padding: .6rem 1rem .6rem; }
 .intro > * { max-width: 900px; margin-left: auto; margin-right: auto; }
-/* עיצוב ספציפי של כותרת הבית בנוסף ליישור האחיד מלמעלה */
 .intro h1 { font-size: 22px; font-weight: 700; border-top: 1px solid var(--gray); padding-top: .7rem; color: var(--gray); }
 .pron { text-align: center; font-size: 12px; color: #000; margin: .5rem auto .2rem !important; border-bottom: 1px solid var(--gray); padding-bottom: .6rem; }
 .about { display: flex; gap: 2rem; align-items: center; max-width: 900px; margin: .6rem auto 1rem; padding: 0 1.25rem; text-align: justify; line-height: 2.05; letter-spacing: .035em; }
@@ -190,26 +163,25 @@ h1, h2, h3 {
 /* ==========================================================================
    4. PROJECTS PAGE & CARDS
    ========================================================================== */
-.band { background: var(--orange); height: 36px; }
+
+/* ביטול הפס הכתום הכפול (מוסתר כעת מכיוון שהתפריט הפך לפס הכתום) */
+.band { display: none; }
+.band.dark { display: block; background: var(--gray); height: auto; padding: .3rem 0; }
+
 .projects { background: var(--gray); padding: .8rem 1.5rem 3rem; }
 .projects h1, .projects ul { max-width: 960px; margin-left: auto; margin-right: auto; }
 .projects h1 { color: var(--orange); font-size: 46px; font-weight: 700; margin-bottom: .9rem; letter-spacing: .01em; }
 .projects ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
 
-/* 
-   עיצוב כרטיסיות הפרויקטים:
-   הגדרת גובה אחיד וסידור התוכן כך שהתמונה תהיה למעלה,
-   והטקסט ייצמד לתחתית ויישב באותו קו גובה בכל הכרטיסיות.
-*/
 .card {
     background: #fff;
-    padding: 1rem 0; /* הורדנו ריווח בצדדים כדי לאפשר לטקסט לתפוס יותר מקום */
+    padding: 1rem 0; 
     text-align: center;
     min-height: 420px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between; /* דוחף את התמונה למעלה ואת הטקסט למטה למראה אחיד */
+    justify-content: space-between; 
 }
 
 .card:nth-child(n) { aspect-ratio: .68; }
@@ -238,16 +210,15 @@ h1, h2, h3 {
     background: repeating-linear-gradient(45deg, #eee, #eee 8px, #e2e2e2 8px, #e2e2e2 16px);
 }
 
-/* עיצוב כותרת הכרטיסייה (הטקסט שמתחת לתמונה) */
 .card h3 {
-    font-family: 'Courier New', Courier, monospace; /* גופן מונוספייס */
-    font-size: 19px; /* כ-18-20 פיקסלים */
-    color: #333333; /* אפור כהה */
-    width: 88%; /* תופס כמעט את כל רוחב הרקע הלבן (כ-85-90%) */
-    padding: 0 15px; /* ריווח פנימי קל בצדדים */
-    text-align: center; /* יישור למרכז */
+    font-family: Courier, 'Courier New', monospace; /* הפונט חזר ל-Courier */
+    font-size: 19px; 
+    color: #333333; 
+    width: 88%; 
+    padding: 0 15px; 
+    text-align: center; 
     margin: 0;
-    margin-bottom: 1rem; /* מרחיק מעט מתחתית הכרטיסייה */
+    margin-bottom: 1rem; 
     font-weight: 700;
     line-height: 1.4;
 }
@@ -261,17 +232,28 @@ h1, h2, h3 {
 .members h1 { background: var(--gray); color: var(--orange); padding: .35rem 0; font-size: 26px; font-weight: 700; margin-bottom: 1.5rem; }
 .members ul { list-style: none; margin: 0 auto; padding: 2rem .2rem 0; max-width: 1000px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem 1rem; }
 .members li { padding: 0 .3rem; }
-.members img { width: 100%; aspect-ratio: 1; border-radius: 50%; object-fit: cover; object-position: 50% 50%; background: #fff; display: block; margin: 0 0 1.4rem; }
-.members h3 { font-size: 14px; font-weight: 600; color: var(--gray); margin: 0 0 .4rem; line-height: 1.7; }
+
+/* תמונות הוקטנו ב-20% למרכז */
+.members img { 
+    width: 80%; /* במקום 100% */
+    aspect-ratio: 1; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    object-position: 50% 50%; 
+    background: #fff; 
+    display: block; 
+    margin: 0 auto 1.4rem auto; /* ממורכזות */
+}
+
+/* טקסט מתחת לתמונות הוגדל ב-20% */
+.members h3 { font-size: 17px; font-weight: 600; color: var(--gray); margin: 0 0 .4rem; line-height: 1.7; }
 .members h3 u, .members h3 { text-decoration: underline; text-decoration-color: var(--gray); }
-.members p { color: #333; font-size: 11px; line-height: 1.9; letter-spacing: .06em; margin: 0; }
+.members p { color: #333; font-size: 13.2px; line-height: 1.9; letter-spacing: .06em; margin: 0; }
 
 /* ==========================================================================
    EVENTS
    ========================================================================== */
 .eventspage .top { padding-bottom: 0; }
-.band.dark { background: var(--gray); height: auto; padding: .3rem 0; }
-.band.dark h1 { color: var(--orange); font-size: 26px; font-weight: 700; }
 .events { max-width: 900px; margin: .9rem auto 3rem; padding: 0 1.8rem; font-family: "Playfair Display", Georgia, serif; }
 .ev { display: table; margin-bottom: 1.1rem; background: var(--orange); color: #3f5a12; border: 1.5px solid var(--green); padding: .4rem .5rem .4rem .45rem; font-size: 13px; font-weight: 700; letter-spacing: .02em; line-height: 1.4; text-decoration: none; max-width: 100%; }
 a.ev:hover { background: #ffad33; color: #1f3a08; }
@@ -341,17 +323,17 @@ a.ev:hover { background: #ffad33; color: #1f3a08; }
     .card:nth-child(n) { aspect-ratio: auto; padding-bottom: 1.4rem; }
     .members ul { gap: 2rem .5rem; }
     .social p, .mail p { font-size: 19px; }
-    .top nav { gap: 1rem; justify-content: center; padding: 0 15px; } /* תפריט צפוף יותר במובייל */
+    .top nav { gap: 1rem; justify-content: center; padding: 0 15px; flex-wrap: wrap; }
 }
 
 @media (max-width: 480px) {
     .members ul { grid-template-columns: repeat(3, 1fr); padding: 1.5rem .3rem 0; }
     .members li { padding: 0 .3rem; }
-    .members h3 { font-size: 10.5px; }
-    .members p { font-size: 8.5px; }
+    .members h3 { font-size: 12.5px; } /* מותאם לנייד */
+    .members p { font-size: 10.5px; } /* מותאם לנייד */
     .projects ul { grid-template-columns: repeat(3, 1fr); gap: .6rem; }
     .card { padding: .5rem .3rem; }
-    .card h3 { font-size: 8px; letter-spacing: .08em; }
+    .card h3 { font-size: 12px; letter-spacing: .08em; }
     .projects h1 { font-size: 30px; }
     .cols { grid-template-columns: 1fr; }
     .events { padding: 0 1.4rem; }
